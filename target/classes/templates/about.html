@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:replace="_fragments :: head('关于我')">
+    <meta charset="UTF-8">
+    <!--    移动端预览设置-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>关于我</title>
+    <!--    Semantic UI-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.css">
+    <link rel="stylesheet" href="../static/css/me.css" >
+</head>
+<body>
+<!--导航-->
+<nav th:replace="_fragments :: menu(5)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
+    <div class="ui container">
+        <div class="ui inverted stackable secondary menu">
+            <h2 class="ui teal header item">Blog</h2>
+            <a href="#" class="m-item item m-mobile-hide"><i class="small home icon"></i>首页</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="small idea icon"></i>分类</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="small tags icon"></i>标签</a>
+            <a href="#" class="m-item item m-mobile-hide"><i class="small clone icon"></i>归档</a>
+
+            <a href="#" class="active m-item item m-mobile-hide"><i class="small info icon"></i>关于我</a>
+            <div class="right m-item item m-mobile-hide">
+                <div class="ui icon inverted transparent input">
+                    <input type="text" placeholder="Search...">
+                    <i class="search icon"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#" class="ui black icon menu toggle button m-right-top m-mobile-show">
+        <i class="sidebar icon">
+
+        </i>
+    </a>
+
+</nav>
+
+
+<!--中间内容-->
+<div class="m-container m-padded-tb-big animate__animated  animate__pulse">
+    <div class="m-container-small m-padded-tb-big">
+        <div class="ui container">
+            <form action="" th:action="@{/about/search}"   class="ui form" method="post">
+                <input type="hidden" name="id" >
+                <div class="required field">
+                    <div class="ui left labeled input">
+                        <label class="ui teal basic label">名称</label>
+                        <input type="text" name="name" placeholder="分类名称" th:value="${name}">
+                    </div>
+                </div>
+                <div class="ui error message"></div>
+
+
+                <div class="ui right aligned container">
+
+                    <button class="submit ui teal button">提交</button>
+                </div>
+            </form>
+        </div>
+
+
+
+    <div class="ui container"id="container_g" style="width: 500px;height: 400px; background-color: rosybrown">
+
+    </div>
+</div>
+
+
+</div>
+<br>
+<br>
+<script th:inline="javascript">
+    var dom = document.getElementById("container_g");
+    var myChart = echarts.init(dom);
+    var option;
+    var data=eval([[${list}]]);
+
+    var links=eval([[${links}]]);
+
+
+    // var data=[
+    //     {
+    //         name:'dai'
+    //     },
+    //     {
+    //         name:'tao'
+    //     }
+    // ]
+    // alert(data)
+    // var a = eval(/*[[${str}]]*/) ;
+    // console.log(str);
+    // var b='str';
+    //var size = /*[[${size}]]*/ 0;
+    // var list= a;
+    // list=[
+    //     {
+    //         name: "Node 2",
+    //     }]
+
+    option = {
+        title: {
+            text: 'Knowledge Graph'
+        },
+        toolbox: {
+            // 显示工具箱
+            show: true,
+            feature: {
+                mark: {
+                    show: true
+                },
+                // 还原
+                restore: {
+                    show: true
+                },
+                // 保存为图片
+                saveAsImage: {
+                    show: true
+                }
+            }
+        },
+        tooltip: {},
+        animationDurationUpdate: 1500,
+        animationEasingUpdate: 'quinticInOut',
+        series: [
+            {
+                type: 'graph',
+                layout: 'force',
+                symbolSize: 70,
+                roam: true,
+                edgeSymbol: ['circle', 'arrow'],
+                edgeSymbolSize: [5, 10],
+                edgeLabel: {
+                    fontSize: 20 ,
+                    normal:{
+                        show: true,
+                        formatter: function (x) {
+
+                            return x.data.relation;
+                        }
+                    }
+                },
+                label:{
+                    normal: {
+                        show: true,
+                        textStyle: {},
+                        position: 'inside'
+                    }
+                },
+                //-----
+                force:{
+                    repulsion:2500,
+                    edgeLength:[100,500]
+                },
+                lineStyle: {
+                    normal: {
+                        width: 2,
+                        color: '#4b565b',
+                    }
+                },
+                draggable:true,
+                //--------
+                data: data,
+                // links: [],
+                links: links,
+
+            }
+        ]
+    };
+
+    if (option && typeof option === 'object') {
+        myChart.setOption(option);
+    }
+
+</script>
+
+
+<!--底部-->
+<footer th:replace="_fragments :: footer" class="ui inverted vertical segment m-padded-tb-massive">
+    <div class="ui center aligned container">
+        <div class="ui inverted divided stackable grid">
+            <div class="three wide column">
+                <div class="ui inverted link list">
+                    <div class="item">
+                        <img src="../static/images/wechat.jpg" class="ui rounded image " alt="" style="width: 110px">
+
+                    </div>
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">最新博客</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">用户故事</a>
+                    <a href="#" class="item">用户故事</a>
+                    <a href="#" class="item">用户故事</a>
+
+                </div>
+            </div>
+            <div class="three wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我们</h4>
+                <div class="ui inverted link list">
+                    <a href="#" class="item">Mail:dai13967663526@163.com</a>
+                    <a href="#" class="item">QQ:1918800604</a>
+
+
+                </div>
+            </div>
+            <div class="seven wide column">
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">最新博客</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-mini">这是我的个人博客</p>
+            </div>
+
+        </div>
+        <div class="ui inverted section divider"></div>
+        <p class="m-text-thin m-text-spaced m-opacity-tiny">底部官方授权信息</p>
+    </div>
+
+
+</footer>
+
+<!--/*/<th:block th:replace="_fragments :: script">/*/-->
+<!--CDN-->
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.2/dist/jquery.min.js"></script>
+<!--Semantic UI-->
+<script src="https://cdn.jsdelivr.net/npm/semantic-ui@2.4.2/dist/semantic.min.js"></script>
+<!--/*/</th:block>/*/-->
+<script>
+    $('.menu.toggle').click(function () {
+        $('.m-item').toggleClass('m-mobile-hide');
+    });
+    $('.qq').popup({});
+    $('.wechat').popup({
+        popup: $('.wechat-qr'),
+        position: 'bottom center'
+
+    });
+
+
+</script>
+</body>
+</html>
