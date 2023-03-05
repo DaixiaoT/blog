@@ -14,7 +14,7 @@
 <nav th:replace="_fragments :: menu(2)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
     <div class="ui container">
         <div class="ui inverted stackable secondary menu">
-            <h2 class="ui teal header item">Blog</h2>
+            <h2 class="ui red header item">Blog</h2>
             <a href="#" class="m-item item m-mobile-hide"><i class="small home icon"></i>首页</a>
             <a href="#" class="active m-item item m-mobile-hide"><i class="small idea icon"></i>分类</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="small tags icon"></i>标签</a>
@@ -45,7 +45,7 @@
         <div class="ui top attached segment">
             <div class="ui middle aligned grid two column">
                 <div class="column">
-                    <h3 class="ui header teal">分类</h3>
+                    <h3 class="ui header red">分类</h3>
                 </div>
                 <div class="right aligned column">
                     共<h2 class="ui header orange m-inline-block m-text-thin" th:text="${#arrays.length(types)}">14</h2>个
@@ -55,8 +55,8 @@
         <div class="ui segment attached m-padded-tb-large">
             <div class="ui labeled button m-margin-tb-tiny" th:each="type:${types}">
                 <a href="#" th:href="@{/types/{id}(id=${type.id})}" class="ui basic button"
-                   th:classappend="${type.id==activeTypeId}?'teal'" th:text="${type.name}">编程学习</a>
-                <div class="ui basic left pointing label" th:classappend="${type.id==activeTypeId}?'teal'"
+                   th:classappend="${type.id==activeTypeId}?'red'" th:text="${type.name}">编程学习</a>
+                <div class="ui basic left pointing label" th:classappend="${type.id==activeTypeId}?'red'"
                      th:text="${#arrays.length(type.blogs)}">24
                 </div>
             </div>
@@ -64,7 +64,7 @@
 
         </div>
 
-        <div class="ui top attached segment teal">
+        <div class="ui top attached segment red">
             <div class="ui padded vertical segment m-padded-tb-large" th:each="blog:${page.content}">
                 <div class="ui middle aligned mobile reversed stackable grid">
                     <div class=" eleven wide column">
@@ -94,7 +94,7 @@
                             </div>
                             <div class="right aligned five wide column">
                                 <a href="#" target="_blank"
-                                   class="ui teal basic label m-padded-tiny m-text-thin "
+                                   class="ui red basic label m-padded-tiny m-text-thin "
                                    th:text="${blog.type.name}"></a>
                             </div>
                         </div>

@@ -22,7 +22,7 @@
 <nav th:replace="_fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
     <div class="ui container">
         <div class="ui inverted stackable secondary menu">
-            <h2 class="ui teal header item">Blog</h2>
+            <h2 class="ui red header item">Blog</h2>
             <a href="#" class="m-item item m-mobile-hide"><i class="small home icon"></i>首页</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="small idea icon"></i>分类</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="small tags icon"></i>标签</a>
@@ -50,7 +50,7 @@
     <div class="ui container">
         <div class="right menu">
             <a href="#"th:href="@{/blog/{id}/graph(id=${blog.id})}" class=" item">知识图谱</a>
-            <a href="#"th:href="@{/blog/{id}(id=${blog.id})}" class="teal active item">文章详情</a>
+            <a href="#"th:href="@{/blog/{id}(id=${blog.id})}" class="red active item">文章详情</a>
         </div>
 
     </div>
@@ -100,7 +100,7 @@
             </div>
             <!--            标签-->
             <div class="m-padded-lr-responsive">
-                <div class="ui basic teal left pointing label" th:each="tag : ${blog.tags}" th:text="${tag.name}">方法论
+                <div class="ui basic red left pointing label" th:each="tag : ${blog.tags}" th:text="${tag.name}">方法论
                 </div>
             </div>
             <!--            赞赏-->
@@ -156,7 +156,7 @@
 
         <div class="ui bottom attached segment" th:if="${blog.commentabled}">
             <!--            留言区域-->
-            <div id="comment-container" class="ui teal segment">
+            <div id="comment-container" class="ui red segment">
                 <div th:fragment="commentList">
                     <div class="ui comments" style="max-width: 100%">
                         <h3 class="ui dividing header">评论</h3>
@@ -167,7 +167,7 @@
                             <div class="content">
                                 <a class="author">
                                     <span th:text="${comment.nickname}">Matt</span>
-                                    <div class="ui mini basic teal left pointing label m-padded-mini"
+                                    <div class="ui mini basic red left pointing label m-padded-mini"
                                          th:if="${comment.adminComment}">博主
                                     </div>
                                 </a>
@@ -190,10 +190,10 @@
                                     <div class="content">
                                         <a class="author">
                                             <span th:text="${reply.nickname}">Matt</span>
-                                            <div class="ui mini basic teal left pointing label m-padded-mini"
+                                            <div class="ui mini basic red left pointing label m-padded-mini"
                                                  th:if="${reply.adminComment}">博主
                                             </div>
-                                            <span class="m-teal"
+                                            <span class="m-red"
                                                   th:text="|@ ${reply.parentComment.nickname}|">@小号 </span>
 
 
@@ -242,7 +242,7 @@
                         </div>
                     </div>
                     <div class="field m-mobile-wide m-margin-bottom-small">
-                        <button id="commentpost-btn" type="button" class="ui teal button m-mobile-wide"><i
+                        <button id="commentpost-btn" type="button" class="ui red button m-mobile-wide"><i
                                 class="edit icon"></i>发布
                         </button>
                     </div>
@@ -256,8 +256,8 @@
 
 <div id="toolbar" class="m-fixed m-right-bottom m-padded" style="display: none">
     <div class="ui vertical icon buttons ">
-        <button type="button" class="ui toc teal button">目录</button>
-        <a href="#comment-container" class="ui teal button">留言</a>
+        <button type="button" class="ui toc red button">目录</button>
+        <a href="#comment-container" class="ui red button">留言</a>
         <button class="ui wechat icon button"><i class="weixin icon"></i></button>
         <div id="toTop-button" class="ui icon button"><i class="chevron up icon"></i></div>
 

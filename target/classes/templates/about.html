@@ -14,7 +14,7 @@
 <nav th:replace="_fragments :: menu(5)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
     <div class="ui container">
         <div class="ui inverted stackable secondary menu">
-            <h2 class="ui teal header item">Blog</h2>
+            <h2 class="ui red header item">Blog</h2>
             <a href="#" class="m-item item m-mobile-hide"><i class="small home icon"></i>首页</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="small idea icon"></i>分类</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="small tags icon"></i>标签</a>
@@ -46,7 +46,7 @@
                 <input type="hidden" name="id" >
                 <div class="required field">
                     <div class="ui left labeled input">
-                        <label class="ui teal basic label">名称</label>
+                        <label class="ui red basic label">名称</label>
                         <input type="text" name="name" placeholder="分类名称" th:value="${name}">
                     </div>
                 </div>
@@ -55,14 +55,14 @@
 
                 <div class="ui right aligned container">
 
-                    <button class="submit ui teal button">提交</button>
+                    <button class="submit ui red button">提交</button>
                 </div>
             </form>
         </div>
 
 
 
-    <div class="ui container"id="container_g" style="width: 500px;height: 400px; background-color: rosybrown">
+    <div class="ui container"id="container_g" style="width: 1200px;height: 600px;">
 
     </div>
 </div>

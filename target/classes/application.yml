@@ -6,3 +6,7 @@ spring:
 
 
 comment.avatar: /images/zjy.jpg
+user.avatar: /images/th.jpg
+#admin密码
+#root
+#123456

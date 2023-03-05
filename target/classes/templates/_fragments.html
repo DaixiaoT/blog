@@ -23,6 +23,10 @@
     <!--    markdown编辑器-->
     <link rel="stylesheet" href="../static/lib/editormd/css/editormd.min.css"
           th:href="@{/lib/editormd/css/editormd.min.css}">
+<!--背景图片网址
+    https://www.toptal.com/designers/subtlepatterns/
+-->
+
 </head>
 <body>
 
@@ -30,7 +34,7 @@
 <nav th:fragment="menu(n)" class="ui inverted attached segment m-padded-tb-mini m-shadow-small">
     <div class="ui container">
         <div class="ui inverted stackable secondary menu">
-            <h2 class="ui teal header item">Blog</h2>
+            <h2 class="ui red header item">Blog</h2>
             <a href="#" th:href="@{/}" class="m-item item m-mobile-hide" th:classappend="${n==1}? 'active'"><i
                     class="small home icon"></i>首页</a>
             <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide" th:classappend="${n==2}? 'active'"><i
@@ -70,17 +74,17 @@
             <div class="three wide column">
                 <div class="ui inverted link list">
                     <div class="item">
-                        <img th:src="@{/images/wechat.jpg}" class="ui rounded image " alt="" style="width: 110px">
+                        <img th:src="@{/images/th.jpg}" class="ui rounded image " alt="" style="width: 110px">
 
                     </div>
                 </div>
             </div>
             <div class="three wide column">
-                <h4 class="ui inverted header m-text-thin m-text-spaced ">最新博客</h4>
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">最新文献</h4>
                 <div id="newblog-container">
                     <div class="ui inverted link list" th:fragment="newblogList">
                         <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item"
-                           th:each="blog:${newblogs}" th:text="${blog.title}">用户故事</a>
+                           th:each="blog:${newblogs}" th:text="${blog.title}"></a>
                     </div>
                 </div>
 
@@ -95,8 +99,8 @@
                 </div>
             </div>
             <div class="seven wide column">
-                <h4 class="ui inverted header m-text-thin m-text-spaced ">实不相瞒</h4>
-                <p class="m-text-thin m-text-spaced m-opacity-mini">我一直想从你的窗子里看月亮</p>
+                <h4 class="ui inverted header m-text-thin m-text-spaced ">红船精神的含义</h4>
+                <p class="m-text-thin m-text-spaced m-opacity-mini">开天辟地、敢为人先的首创精神，坚定理想、百折不挠的奋斗精神，立党为公、忠诚为民的奉献精神</p>
             </div>
 
         </div>

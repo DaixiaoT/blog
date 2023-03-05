@@ -14,7 +14,7 @@
 <nav th:replace="admin/_fragments :: menu(1)" class="ui inverted attached segment m-padded-tb-mini m-shadow-white">
     <div class="ui container">
         <div class="ui inverted stackable secondary menu">
-            <h2 class="ui teal header item">管理后台</h2>
+            <h2 class="ui red header item">管理后台</h2>
             <a href="#" class="active m-item item m-mobile-hide"><i class="small home icon"></i>博客</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="small idea icon"></i>分类</a>
             <a href="#" class="m-item item m-mobile-hide"><i class="small tags icon"></i>标签</a>
@@ -45,7 +45,7 @@
     <div class="ui container">
         <div class="right menu">
             <a href="#"th:href="@{/admin/blogs/input}" class=" item">发布</a>
-            <a href="#"th:href="@{/admin/blogs}" class="teal active item">列表</a>
+            <a href="#"th:href="@{/admin/blogs}" class="red active item">列表</a>
         </div>
 
     </div>
@@ -91,7 +91,7 @@
                     </div>
                 </div>
                 <div class="field">
-                    <button type="button" id="search-btn" class="ui mini teal basic button "><i class="search icon"></i>搜索
+                    <button type="button" id="search-btn" class="ui mini red basic button "><i class="search icon"></i>搜索
                     </button>
                 </div>
 
@@ -99,7 +99,7 @@
         </div>
 
         <div id="table-container">
-            <table th:fragment="blogList" class="ui compact teal table">
+            <table th:fragment="blogList" class="ui compact red table">
                 <thead>
                 <tr>
                     <th></th>
@@ -121,7 +121,7 @@
                     <td th:text="${blog.updateTime}">2021-10-28 09:45</td>
                     <td>
                         <a href="#" th:href="@{/admin/blogs/{id}/input(id=${blog.id})}"
-                           class="ui mini teal basic button">编辑</a>
+                           class="ui mini red basic button">编辑</a>
                         <a href="#" th:href="@{/admin/blogs/{id}/delete(id=${blog.id})}"
                            class="ui mini red orange basic button">删除</a>
                     </td>
